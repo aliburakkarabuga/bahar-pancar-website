@@ -1,20 +1,15 @@
 const isMobile = window.matchMedia('(hover: none)').matches;
 
 // ── LOADER ──
-function startSite() {
-  document.getElementById('loader').classList.add('done');
-  document.body.classList.remove('loading');
-  document.querySelectorAll('.clip-reveal').forEach((el, i) => {
-    setTimeout(() => el.classList.add('visible'), i * 80);
-  });
-}
-
-// Maksimum 2.5 saniye bekle, sonra her halükarda aç
-const loaderTimeout = setTimeout(startSite, 2500);
-
 window.addEventListener('load', () => {
-  clearTimeout(loaderTimeout);
-  setTimeout(startSite, 1800);
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('done');
+    document.body.classList.remove('loading');
+    // trigger hero reveals after loader
+    document.querySelectorAll('.hero .clip-reveal, .hero-title .clip-reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 120);
+    });
+  }, 1800);
 });
 
 // ── CURSOR ──
