@@ -204,16 +204,3 @@ if (!isMobile) {
   }, { passive: true });
 }
 
-// ── MODERN CARD LIGHT TRACKING ──
-if (!isMobile) {
-  document.querySelectorAll('.service-card, .article-card').forEach(panel => {
-    panel.addEventListener('mousemove', event => {
-      const rect = panel.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      panel.style.setProperty('--mx', `${x}%`);
-      panel.style.setProperty('--my', `${y}%`);
-    }, { passive: true });
-  });
-}
-
