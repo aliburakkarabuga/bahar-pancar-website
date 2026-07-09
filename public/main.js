@@ -218,7 +218,7 @@ if (!isMobile) {
   console.log('consent:', localStorage.getItem('cookieConsent'));
   if (!banner) { console.log('banner yok'); return; }
   if (localStorage.getItem('cookieConsent')) { console.log('consent var'); return; }
-  banner.style.display = 'block';
+  setTimeout(() => { banner.style.display = 'block'; }, 2000);
   document.getElementById('cookieYes').onclick = function() {
     localStorage.setItem('cookieConsent', 'accepted');
     banner.style.display = 'none';

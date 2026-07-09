@@ -49,6 +49,8 @@ body.loading { overflow: hidden; }
 /* ── CURSOR ── */
 @media (hover: hover) {
   body { cursor: none; }
+  #cookieBanner, #cookieBanner * { cursor: auto; }
+  .kvkk-page, .kvkk-page * { cursor: auto; }
   .cursor {
     position: fixed; width: 8px; height: 8px;
     background: var(--gold); border-radius: 50%;
