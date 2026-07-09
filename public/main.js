@@ -71,17 +71,6 @@ function drawParticles() {
 }
 drawParticles();
 
-// ── PARALLAX TITLE ──
-if (!isMobile) {
-  const parallaxLines = document.querySelectorAll('.parallax-line');
-  window.addEventListener('scroll', () => {
-    const sy = window.scrollY;
-    parallaxLines.forEach(el => {
-      const speed = parseFloat(el.dataset.speed) || 0.05;
-      el.style.transform = `translateY(${sy * speed}px)`;
-    });
-  }, { passive: true });
-}
 
 // ── CARD ──
 const card = document.getElementById('card3d');
@@ -151,12 +140,30 @@ function animateCounter(el) {
   const target = parseInt(el.dataset.target);
   const suffix = el.dataset.suffix || '';
   let current = 0;
-  const step = target / 55;
+  const steps = 60;
+  const step = target / steps;
+  let lastVal = -1;
+  let count = 0;
+
   const iv = setInterval(() => {
+    count++;
     current += step;
-    if (current >= target) { current = target; clearInterval(iv); }
-    el.textContent = Math.floor(current) + suffix;
-  }, 20);
+    if (count >= steps) { current = target; clearInterval(iv); }
+    const val = Math.floor(current);
+    if (val === lastVal) return;
+    lastVal = val;
+
+    const numStr = String(val);
+    el.innerHTML = numStr.split('').map((d, i) =>
+      `<span class="stat-digit" style="animation-delay:${i * 0.05}s">${d}</span>`
+    ).join('') + `<span>${suffix}</span>`;
+
+    el.querySelectorAll('.stat-digit').forEach(d => {
+      d.classList.remove('flip');
+      void d.offsetWidth;
+      d.classList.add('flip');
+    });
+  }, 25);
 }
 
 const revealObserver = new IntersectionObserver(entries => {
@@ -204,3 +211,20 @@ if (!isMobile) {
   }, { passive: true });
 }
 
+// ── COOKIE ──
+(function() {
+  const banner = document.getElementById('cookieBanner');
+  console.log('banner:', banner);
+  console.log('consent:', localStorage.getItem('cookieConsent'));
+  if (!banner) { console.log('banner yok'); return; }
+  if (localStorage.getItem('cookieConsent')) { console.log('consent var'); return; }
+  banner.style.display = 'block';
+  document.getElementById('cookieYes').onclick = function() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    banner.style.display = 'none';
+  };
+  document.getElementById('cookieNo').onclick = function() {
+    localStorage.setItem('cookieConsent', 'declined');
+    banner.style.display = 'none';
+  };
+})();

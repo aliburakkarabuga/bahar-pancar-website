@@ -89,15 +89,15 @@
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stat-item clip-reveal">
-    <div class="stat-number" data-target="500" data-suffix="+">0+</div>
+    <div class="stat-number" data-target="500" data-suffix="+">10+</div>
     <div class="stat-label">Danışan</div>
   </div>
   <div class="stat-item clip-reveal">
-    <div class="stat-number" data-target="8" data-suffix=" yıl">0 yıl</div>
+    <div class="stat-number" data-target="8" data-suffix=" yıl">5 yıl</div>
     <div class="stat-label">Deneyim</div>
   </div>
   <div class="stat-item clip-reveal">
-    <div class="stat-number" data-target="3" data-suffix=" alan">0 alan</div>
+    <div class="stat-number" data-target="3" data-suffix=" alan">5 alan</div>
     <div class="stat-label">Uzmanlık</div>
   </div>
 </div>
@@ -295,6 +295,17 @@
   <div class="footer-copy">© 2026 · Tüm hakları saklıdır</div>
 </footer>
 
+<!-- COOKIE BANNER -->
+<div id="cookieOverlay" style="position:fixed;inset:0;z-index:9998;pointer-events:none;"></div>
+<div id="cookieBanner" style="display:none;position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 4rem);max-width:600px;">
+  <div class="cookie-box">
+    <p class="cookie-text">Bu web sitesi deneyiminizi iyileştirmek için çerezler kullanmaktadır. Kişisel verileriniz 6698 sayılı KVKK kapsamında işlenmektedir. <a href="kvkk.html" style="color:#C9A96E;text-decoration:none;border-bottom:1px solid rgba(201,169,110,0.4)">Gizlilik Politikası</a></p>
+    <div class="cookie-btns">
+      <button class="cookie-yes" id="cookieYes">Kabul Et</button>
+      <button class="cookie-no" id="cookieNo">Reddet</button>
+    </div>
+  </div>
+</div>
 <script src="public/main.js"></script>
 </body>
-</html>
+
