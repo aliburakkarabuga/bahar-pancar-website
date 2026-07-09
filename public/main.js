@@ -142,7 +142,6 @@ function animateCounter(el) {
   let current = 0;
   const steps = 60;
   const step = target / steps;
-  let lastVal = -1;
   let count = 0;
 
   const iv = setInterval(() => {
@@ -150,20 +149,8 @@ function animateCounter(el) {
     current += step;
     if (count >= steps) { current = target; clearInterval(iv); }
     const val = Math.floor(current);
-    if (val === lastVal) return;
-    lastVal = val;
-
-    const numStr = String(val);
-    el.innerHTML = numStr.split('').map((d, i) =>
-      `<span class="stat-digit" style="animation-delay:${i * 0.05}s">${d}</span>`
-    ).join('') + `<span>${suffix}</span>`;
-
-    el.querySelectorAll('.stat-digit').forEach(d => {
-      d.classList.remove('flip');
-      void d.offsetWidth;
-      d.classList.add('flip');
-    });
-  }, 25);
+    el.innerHTML = `<span class="slot-inner" style="animation-duration:${0.6 + count * 0.003}s">${val}${suffix}</span>`;
+  }, 30);
 }
 
 const revealObserver = new IntersectionObserver(entries => {

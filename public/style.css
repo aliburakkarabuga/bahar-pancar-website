@@ -155,7 +155,7 @@ nav.scrolled {
 
 /* ── STATS ── */
 .stats-bar { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid rgba(201,169,110,0.1); border-bottom: 1px solid rgba(201,169,110,0.1); background: rgba(26,42,80,0.5); backdrop-filter: blur(10px); }
-.stat-item { padding: 2rem 5%; text-align: center; border-right: 1px solid rgba(201,169,110,0.1); transition: background 0.3s; }
+.stat-item { padding: 2rem 5%; text-align: center; border-right: 1px solid rgba(201,169,110,0.1); transition: background 0.3s; overflow: hidden; }
 .stat-item:last-child { border-right: none; }
 .stat-item:hover { background: rgba(201,169,110,0.04); }
 .stat-number {
@@ -166,23 +166,18 @@ nav.scrolled {
   line-height: 1;
   margin-bottom: 0.4rem;
   display: block;
-  perspective: 300px;
-  transform-style: preserve-3d;
+  overflow: hidden;
+  position: relative;
 }
 .stat-label { font-size: 0.7rem; letter-spacing: 0.2em; color: rgba(247,243,238,0.4); text-transform: uppercase; }
 
-.stat-digit {
+@keyframes slotUp {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.stat-number .slot-inner {
   display: inline-block;
-  transform-origin: 50% 0%;
-  backface-visibility: hidden;
-}
-.stat-digit.flip {
-  animation: digitFlip 0.25s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-@keyframes digitFlip {
-  0% { transform: rotateX(-90deg); opacity: 0; }
-  60% { opacity: 1; }
-  100% { transform: rotateX(0deg); opacity: 1; }
+  animation: slotUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* ── DIVIDER ── */
