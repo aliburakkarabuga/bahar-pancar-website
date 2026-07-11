@@ -4,7 +4,7 @@
 
 ---
 
-## 🌐 Site Yapısı
+##  Site Yapısı
 
 Site tek sayfalık (single-page) bir yapıya sahip olup şu bölümlerden oluşur:
 
@@ -18,7 +18,7 @@ Site tek sayfalık (single-page) bir yapıya sahip olup şu bölümlerden oluşu
 
 ---
 
-## ✨ Animasyonlar & Efektler
+##  Animasyonlar & Efektler
 
 ### Sayfa Açılışı
 - **Page Loader** — "B. PANCAR" yazısı soldan açılır, altında ince altın çizgi uzar, "Psikolog" belirir. 2.5 saniye sonra site açılır. Harici kaynaklar yüklenmese bile timeout ile açılma garantisi vardır.
@@ -54,7 +54,7 @@ Site tek sayfalık (single-page) bir yapıya sahip olup şu bölümlerden oluşu
 
 ---
 
-## 📁 Dosya Yapısı
+##  Dosya Yapısı
 
 ```
 bahar-pancar-website/
@@ -69,7 +69,7 @@ bahar-pancar-website/
 
 ---
 
-## 🛠 Teknoloji
+##  Teknoloji
 
 - **Vanilla HTML / CSS / JavaScript** — Sıfır bağımlılık, sıfır framework
 - **Google Fonts** — Cormorant Garamond (display) + Jost (body)
@@ -81,7 +81,7 @@ bahar-pancar-website/
 
 ---
 
-## 📱 Responsive
+##  Responsive
 
 | Breakpoint | Davranış |
 |---|---|
@@ -95,7 +95,7 @@ iPhone notch desteği için `env(safe-area-inset-*)` uygulanmıştır.
 
 ---
 
-## 🚀 Kurulum & Çalıştırma
+##  Kurulum & Çalıştırma
 
 ```bash
 git clone https://github.com/aliburakkarabuga/bahar-pancar.git
@@ -106,7 +106,7 @@ Bağımlılık yoktur. VSCode Live Server ile aç ya da doğrudan `index.html` d
 
 ---
 
-## 📝 İçerik Güncellemeleri
+##  İçerik Güncellemeleri
 
 | Alan | Dosya | Satır |
 |---|---|---|
@@ -117,10 +117,10 @@ Bağımlılık yoktur. VSCode Live Server ile aç ya da doğrudan `index.html` d
 
 ---
 
-## 📬 İletişim
+##  İletişim
 
 **Bahar Pancar** — Psikolog  
 Uzmanlık: BDT · Mindfulness · Oyun Terapisi  
 Lokasyon: Manisa · Online  
-✉️ psikologbaharpancar@gmail.com  
-📞 0530 610 45 12
+psikologbaharpancar@gmail.com  
+ 0530 610 45 12
