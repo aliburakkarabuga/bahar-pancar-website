@@ -5,8 +5,7 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader').classList.add('done');
     document.body.classList.remove('loading');
-    // trigger hero reveals after loader
-    document.querySelectorAll('.hero .clip-reveal, .hero-title .clip-reveal').forEach((el, i) => {
+    document.querySelectorAll('.hero .clip-reveal').forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), i * 120);
     });
   }, 1800);
@@ -140,7 +139,7 @@ function animateCounter(el) {
   const target = parseInt(el.dataset.target);
   const suffix = el.dataset.suffix || '';
   let current = 0;
-  const steps = 60;
+  const steps = 80;
   const step = target / steps;
   let count = 0;
 
@@ -149,24 +148,26 @@ function animateCounter(el) {
     current += step;
     if (count >= steps) { current = target; clearInterval(iv); }
     const val = Math.floor(current);
-    el.innerHTML = `<span class="slot-inner" style="animation-duration:${0.6 + count * 0.003}s">${val}${suffix}</span>`;
-  }, 30);
+    el.innerHTML = `<span class="slot-inner">${val}${suffix}</span>`;
+  }, 40);
 }
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
       const el = entry.target;
-      // skip hero items — handled by loader
       if (el.closest('.hero')) return;
       setTimeout(() => {
         el.classList.add('visible');
-        if (el.dataset.target) animateCounter(el);
+      if (el.dataset.target) {
+        const delay = Math.max(1800, i * 80 + 1800);
+        setTimeout(() => animateCounter(el), delay);
+      }
       }, i * 80);
       revealObserver.unobserve(el);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
 document.querySelectorAll('.clip-reveal').forEach(el => revealObserver.observe(el));
 

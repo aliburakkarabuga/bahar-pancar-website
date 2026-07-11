@@ -166,18 +166,18 @@ nav.scrolled {
   line-height: 1;
   margin-bottom: 0.4rem;
   display: block;
-  overflow: hidden;
+  .stat-item { padding: 2rem 5%; text-align: center; border-right: 1px solid rgba(201,169,110,0.1); transition: background 0.3s; overflow: hidden; }
   position: relative;
 }
 .stat-label { font-size: 0.7rem; letter-spacing: 0.2em; color: rgba(247,243,238,0.4); text-transform: uppercase; }
 
 @keyframes slotUp {
-  0% { transform: translateY(100%); opacity: 0; }
+  0% { transform: translateY(60px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
 }
 .stat-number .slot-inner {
   display: inline-block;
-  animation: slotUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: slotUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* ── DIVIDER ── */
